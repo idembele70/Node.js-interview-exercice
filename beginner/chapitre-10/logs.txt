@@ -1,0 +1,30 @@
+{
+  "ip": "::ffff:127.0.0.1",
+  "method": "GET",
+  "url": "/logger",
+  "date": "2025-08-06T23:30:47.092Z"
+}
+{
+  "ip": "::ffff:127.0.0.1",
+  "method": "GET",
+  "url": "/logger",
+  "date": "2025-08-06T23:30:49.189Z"
+}
+{
+  "ip": "::1",
+  "method": "GET",
+  "url": "/logger",
+  "date": "2025-08-06T23:31:02.320Z"
+}
+{
+  "ip": "::1",
+  "method": "GET",
+  "url": "/logger",
+  "date": "2025-08-06T23:31:07.148Z"
+}
+{
+  "ip": "::ffff:127.0.0.1",
+  "method": "GET",
+  "url": "/logger",
+  "date": "2025-08-07T00:04:47.610Z"
+}

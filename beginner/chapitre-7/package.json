@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "express": "^5.1.0",
+    "helmet": "^8.1.0"
+  },
+  "name": "chapitre-7",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "PORT=58568 node --watch index.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

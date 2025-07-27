@@ -1,0 +1,11 @@
+GET http://localhost:58568/token HTTP/1.1
+Authorization: Bearer secret-tokens
+
+###
+POST http://localhost:58568/upload HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": "1254d-dfd4fd-dffd44sfssds",
+  "content": "HI my name is toto and you ?"
+}
