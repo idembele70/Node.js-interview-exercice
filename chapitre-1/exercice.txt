@@ -1,0 +1,115 @@
+Yes mec, carrément possible ! Je te prépare **10 questions style coding challenge**, un mix entre des **questions QCM (bases de Node.js)** et des **petits exos de dev où tu dois me renvoyer ton code**. Niveau **junior** mais avec un peu de réflexion quand même (histoire que ça muscle bien).
+
+Je te mets un format **comme sur corderpar.io** :
+
+* **Questions 1 à 5** → **QCM (bases de Node.js)**
+* **Questions 6 à 10** → **Exercices de dev** (tu me colles ton code et je te corrige / note)
+
+---
+
+## ✅ **1 - QCM : Quel est le rôle de `module.exports` en Node.js ?**
+
+A. Il permet d'exécuter un module automatiquement.
+B. Il permet d’exporter des fonctions/objets pour être utilisés dans d’autres fichiers.
+C. Il permet de compiler le code en binaire.
+D. Il est obligatoire pour importer des modules natifs comme `fs`.
+
+---
+
+## ✅ **2 - QCM : Quelle est la différence entre `require()` et `import` en Node.js ?**
+
+A. `require()` est utilisé en CommonJS et `import` en ES Modules.
+B. Il n’y a aucune différence, ils font exactement la même chose.
+C. `require()` charge tout le fichier alors que `import` charge uniquement les fonctions exportées.
+D. `import` fonctionne uniquement côté navigateur.
+
+---
+
+## ✅ **3 - QCM : Quel est le résultat du code suivant ?**
+
+```js
+console.log(typeof setTimeout);
+```
+
+A. `"function"`
+B. `"object"`
+C. `"timeout"`
+D. `"undefined"`
+
+---
+
+## ✅ **4 - QCM : Que fait le code suivant ?**
+
+```js
+const fs = require('fs');
+
+fs.writeFileSync('test.txt', 'Hello Node!');
+```
+
+A. Écrit "Hello Node!" dans un fichier `test.txt` (créé s’il n’existe pas).
+B. Écrit dans un fichier mais uniquement s’il existe déjà.
+C. Écrit en mode asynchrone et nécessite un callback.
+D. Crée un dossier nommé `test.txt`.
+
+---
+
+## ✅ **5 - QCM : À quoi sert `process.argv` en Node.js ?**
+
+A. À gérer les arguments passés en ligne de commande.
+B. À afficher le chemin du dossier courant.
+C. À accéder aux variables d’environnement.
+D. À terminer un processus avec un code d’erreur.
+
+---
+
+## 🧑‍💻 **6 - Dev : Crée un petit serveur HTTP basique**
+
+👉 Écris un script Node.js qui :
+
+* écoute sur le port `3000`,
+* renvoie **"Hello World"** quand on ouvre `http://localhost:3000`.
+
+---
+
+## 🧑‍💻 **7 - Dev : Lecture d’un fichier**
+
+👉 Écris un script qui :
+
+* lit un fichier `data.txt`,
+* affiche son contenu dans la console.
+  *(Utilise `fs.readFileSync` ou `fs.readFile`, comme tu veux)*
+
+---
+
+## 🧑‍💻 **8 - Dev : Addition avec `process.argv`**
+
+👉 Écris un script qui prend **2 nombres en argument** (ex : `node app.js 3 7`) et affiche la somme dans la console.
+
+---
+
+## 🧑‍💻 **9 - Dev : Export/Import de fonction**
+
+👉 Crée 2 fichiers :
+
+* **`math.js`** → exporte une fonction `add(a, b)` qui retourne la somme.
+* **`app.js`** → importe cette fonction et l’exécute.
+
+---
+
+## 🧑‍💻 **10 - Dev : Liste des fichiers d’un dossier**
+
+👉 Écris un script qui :
+
+* utilise `fs.readdir` pour lister tous les fichiers du dossier courant,
+* affiche chaque fichier dans la console.
+
+---
+
+🔥 **Plan d’entraînement :**
+
+* Tu me réponds **1 à 5** direct ici (juste les lettres A/B/C/D).
+* Ensuite tu codes **les 6 à 10** et tu me colles ton code → je te dis si c’est bon, je corrige si besoin, et je te donne un **score (style corderpar.io)**.
+
+---
+
+➡️ **Tu veux que je te mette un système de points (genre /100) pour chaque série ou qu’on fait juste correction et explication ?**
