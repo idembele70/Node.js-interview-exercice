@@ -1,0 +1,4 @@
+GET http://localhost:8080/token HTTP/1.1
+####
+GET http://localhost:8080/private HTTP/1.1
+Authorization: Bearer aeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRvdG8iLCJpYXQiOjE3NTM4ODg5NjUsImV4cCI6MTc1Mzg5MjU2NX0.JJxEl3rlUqafL5fP_CuE_R_hNbSAvGvyGKZ3E8TDgzw
