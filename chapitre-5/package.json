@@ -1,0 +1,22 @@
+{
+  "name": "chapitre-5",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --watch app",
+    "test": "node --experimental-vm-modules ./node_modules/.bin/jest"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "jest": "^30.0.5"
+  },
+  "devDependencies": {
+    "supertest": "^7.1.4"
+  }
+}

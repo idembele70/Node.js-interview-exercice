@@ -1,0 +1,37 @@
+GET http://localhost:8080/ HTTP/1.1
+X-Forwarded-For: true
+
+####
+POST http://localhost:8080/ HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "toto",
+  "email": "toto@mail.fr"
+}
+
+####
+GET http://localhost:8080/ HTTP/1.1
+
+
+###
+GET http://localhost:8080/wait/2
+
+###
+GET http://localhost:8080/read/data.txts
+
+###
+GET http://localhost:8080/posts/
+
+###
+POST http://localhost:8080/posts/new HTTP/1.1
+Content-Type: application/json
+
+{
+  "author": "Toto",
+  "content": "Hello World!"
+}
+
+###
+GET http://localhost:8080/admin HTTP/1.1
+x-admin: false
