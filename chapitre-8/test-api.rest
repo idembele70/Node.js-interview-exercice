@@ -1,0 +1,8 @@
+GET http://localhost:45764/no/content HTTP/1.1
+
+###
+GET http://localhost:45764/rate/limiter HTTP/1.1
+
+###
+GET http://localhost:45764/block/user/agent HTTP/1.1
+User-Agent: curl/8.5.0
