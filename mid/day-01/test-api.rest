@@ -1,0 +1,15 @@
+### QUESTION 8
+
+PUT http://localhost:8945/products/1
+content-type: application/json
+
+{
+  "name": "pasta",
+  "price": "17gg5"
+}
+
+### QUESTION 9 GET
+GET http://localhost:8945/cache/control
+
+### QUESTION 9 PUT
+PUT http://localhost:8945/cache/control
