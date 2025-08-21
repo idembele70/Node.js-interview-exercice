@@ -283,4 +283,161 @@ async function fetchPosts(ids) {
 👉 Globalement : **très bon niveau intermédiaire**, tu es à un cran du niveau "senior" 🎯.
 
 Veux-tu que je t’invente une **nouvelle série intermédiaire/mid (5 QCM + 5 exos code)** directement, pour continuer à progresser ?
+=====
+CODE
+=====
+Super taf 👌 tu es bien monté en niveau là, voyons ton code exercice par exercice avec un œil **senior** :
+
+---
+
+### **6. validateHeaders**
+
+```ts
+function validateHeaders(req, res, next) {
+  const expectedContentType = 'application/json';
+  const contentTypeHeader = req.get('content-type');
+
+  if(!contentTypeHeader || contentTypeHeader !== expectedContentType) {
+    res.sendStatus(400);
+    return;
+  }
+  next();  
+}
+```
+
+✅ Bonne logique, tu check bien l’en-tête.
+⚠️ Petit détail : parfois `Content-Type` arrive avec un `; charset=utf-8`. Du coup ton check exact `===` va rater.
+
+👉 Version **senior** :
+
+```ts
+if (!contentTypeHeader || !contentTypeHeader.includes(expectedContentType)) {
+  return res.status(400).json({ error: 'Invalid Content-Type' });
+}
+```
+
+---
+
+### **7. getUserData**
+
+```ts
+async function getUserData(userId) {
+  const baseUrl = 'https://jsonplaceholder.typicode.com/users/';
+
+  try {
+    const url = new URL(userId, baseUrl);
+    const res = await fetch(url.href);
+
+    if(!res.ok) {
+      return null;
+    }
+    return res.json();
+  } catch (err) {
+    console.error('Error during fetch:', err);
+  }
+}
+```
+
+✅ Solide. Tu utilises bien `URL`.
+⚠️ Amélioration possible : tu retournes `undefined` si erreur (pas de return dans le catch). Toujours retourner une valeur claire (`null`) en cas d’échec.
+
+👉 Version **senior** :
+
+```ts
+catch (err) {
+  console.error('Error during fetch:', err);
+  return null;
+}
+```
+
+---
+
+### **8. sanitizeUser**
+
+```ts
+function sanitizeUser(user) {
+  return lodash.pick(user, ['id', 'name', 'email']);
+}
+```
+
+✅ Nickel, clean et simple.
+⚠️ Micro détail : pour être cohérent avec les autres, je mettrais `const` devant.
+
+👉 Version senior :
+
+```ts
+const sanitizeUser = (user) => _.pick(user, ['id', 'name', 'email']);
+```
+
+---
+
+### **9. products/\:id**
+
+```ts
+app.get('/products/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const index = products.findIndex(product => product.id === id);
+  
+  if (index === -1) {
+    res.status(404).send('Product not found');
+    return;
+  }
+  res.status(200).json(products[index]);
+});
+```
+
+✅ Bien joué, simple et lisible.
+⚠️ Amélioration possible : utiliser `Number(req.params.id)` (plus sûr que `parseInt` sans base). Tu peux aussi directement chercher l’objet au lieu de l’index.
+
+👉 Version senior :
+
+```ts
+const id = Number(req.params.id);
+const product = products.find(p => p.id === id);
+
+if (!product) {
+  return res.status(404).json({ message: 'Product not found' });
+}
+res.json(product);
+```
+
+---
+
+### **10. FetchInParallels**
+
+```ts
+async function FetchInParallels(urls) {
+  const result = await Promise.allSettled(urls.map(url => 
+    fetch(url).then(res => res.json()).catch(err => null)
+  ))
+
+  return result.map(res => res.status === 'fulfilled' ? res.value : null)
+}
+```
+
+✅ Très bon, tu as bien utilisé `Promise.allSettled`.
+⚠️ Amélioration possible : ton `.catch` dans le map est inutile vu que `allSettled` capture déjà les rejets.
+
+👉 Version senior :
+
+```ts
+async function fetchInParallel(urls) {
+  const results = await Promise.allSettled(
+    urls.map(url => fetch(url).then(res => res.json()))
+  );
+  return results.map(r => r.status === 'fulfilled' ? r.value : null);
+}
+```
+
+---
+
+# 📊 Bilan
+
+* Tu maîtrises bien les concepts intermédiaires 👏
+* Tes codes sont corrects à **95%** (seuls détails : content-type exact match, return dans le catch, simplification `find`).
+* Niveau intermédiaire validé ✅, tu es à la porte du niveau **mid-senior** 🚀
+
+---
+
+👉 Veux-tu que je continue avec une **nouvelle série intermédiaire++** (un peu plus piégeuse, genre validation Zod avancée, middleware d’auth JWT, etc.) ou tu préfères qu’on bascule direct sur du **niveau senior** ?
 
