@@ -1,0 +1,128 @@
+🔥 Parfait, tu passes clairement dans la **zone intermédiaire+++++** → là on va attaquer des exercices qui touchent :
+
+* Validation avancée avec **Zod**
+* Usage de **Lodash** dans des cas plus tricky
+* Middlewares Express plus complexes
+* Gestion des erreurs et des promesses concurrentes
+* Optimisation de code serveur
+
+---
+
+## **QCM (5 questions)**
+
+**1. Dans Express, quel est l’ordre correct de traitement des middlewares et routes ?**
+A. Middleware global → Route spécifique → Middleware d’erreur
+B. Route spécifique → Middleware global → Middleware d’erreur
+C. Middleware d’erreur → Middleware global → Route spécifique
+D. Aucun ordre précis
+
+---
+
+**2. Concernant `Promise.allSettled()` vs `Promise.all()` :**
+A. `Promise.allSettled()` renvoie toujours toutes les promesses, réussies ou échouées.
+B. `Promise.all()` rejette immédiatement si une promesse échoue.
+C. `Promise.allSettled()` est plus adapté pour du parallélisme tolérant aux erreurs.
+D. `Promise.all()` et `Promise.allSettled()` se comportent identiquement.
+
+---
+
+**3. Avec Lodash, quelle méthode est adaptée pour supprimer toutes les valeurs `null` ou `undefined` d’un objet profondément imbriqué ?**
+A. `_.omitBy`
+B. `_.pickBy`
+C. `_.compact`
+D. `_.cleanDeep` (n’existe pas dans Lodash)
+
+---
+
+**4. Si on veut créer un schéma Zod qui valide :**
+
+* `name` = string non vide
+* `age` = nombre entier positif
+* `email` = string format email
+  Quel est le schéma correct ?
+  A. `z.object({ name: z.string(), age: z.number(), email: z.string() })`
+  B. `z.object({ name: z.string().min(1), age: z.number().int().positive(), email: z.string().email() })`
+  C. `z.object({ name: z.string().optional(), age: z.number().min(0), email: z.string().min(1) })`
+  D. `z.object({ name: z.string().nonempty(), age: z.number().int().positive(), email: z.string().email() })`
+
+---
+
+**5. Dans Express, si un middleware appelle `next(err)` au lieu de `next()`, que se passe-t-il ?**
+A. La requête est interrompue et Express envoie un 500 automatiquement.
+B. Express saute les middlewares normaux et appelle directement les middlewares d’erreurs (`(err, req, res, next)`).
+C. La requête est relancée depuis le début de la pile.
+D. Le serveur crash si aucun middleware d’erreur n’est défini.
+
+---
+
+---
+
+## **Exercices de Code (5 exercices)**
+
+**6. Middleware avancé de validation d’`Authorization` Bearer Token**
+Écris un middleware qui :
+
+* Vérifie que l’en-tête `Authorization` existe
+* Vérifie qu’il commence par `Bearer `
+* Récupère le token et l’ajoute dans `req.token`
+* Sinon, renvoie un `401 Unauthorized`
+
+---
+
+**7. Logger en JSON dans un fichier**
+Écris une fonction `logRequestToFile(req)` qui enregistre dans un fichier `access.log` un objet JSON avec :
+
+* méthode (`method`)
+* url (`url`)
+* ip (`ip`)
+* date (`date`) en ISO
+
+---
+
+**8. Regrouper et compter avec Lodash**
+Écris une fonction `countUsersByRole(users)` qui, à partir d’un tableau comme :
+
+```js
+[
+  { name: "Alice", role: "admin" },
+  { name: "Bob", role: "user" },
+  { name: "Clara", role: "admin" }
+]
+```
+
+Retourne :
+
+```js
+{ admin: 2, user: 1 }
+```
+
+---
+
+**9. Route Express PUT /tasks/\:id**
+Écris une route qui permet de mettre à jour la `title` d’une tâche dans un tableau en mémoire :
+
+```js
+let tasks = [
+  { id: 1, title: "Buy milk" },
+  { id: 2, title: "Read book" }
+];
+```
+
+* Si `id` n’existe pas → `404`
+* Si `title` est manquant → `400`
+* Sinon, renvoyer la tâche mise à jour avec `200`
+
+---
+
+**10. Exécution concurrente avec récupération partielle**
+Écris une fonction `fetchPosts(ids)` qui :
+
+* Fait un `fetch` en parallèle sur l’API `https://jsonplaceholder.typicode.com/posts/:id`
+* Ignore les erreurs (remplacer par `null`)
+* Retourne un tableau avec les résultats ou `null` si échec
+
+---
+
+👉 Là, on est déjà à un **niveau intermédiaire+++++ solide**, proche des entretiens **backend mid-level**.
+Veux-tu que je prépare la **correction directe** après que tu m’envoies tes réponses, comme on fait d’habitude ?
+
